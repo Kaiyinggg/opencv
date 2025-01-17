@@ -42,29 +42,6 @@ def scan_detection(image):
                 max_area = area
     cv2.drawContours(frame, [document_countour], -1, (0,255,0), 3)
 
-# while True:
-#     _, frame = cap.read()
-#     frame = cv2.rotate(frame, cv2.ROTATE_180)
-#     frame_copy = frame.copy()
-#     scan_detection(frame_copy)
-#     cv2.imshow("input: ", frame)
-
-#     warped = four_point_transform(frame_copy, document_countour.reshape(4,2))
-#     cv2.imshow("Warped: ", warped)
-
-#     processed = image_processing(warped)
-#     processed = processed[10:processed.shape[0] - 10, 10:processed.shape[1]-10]
-#     cv2.imshow("Processed", processed)
-#     text = pytesseract.image_to_string(warped)
-#     print("Detected Text:", text)
-
-#     pressed_key = cv2.waitKey(1) & 0xFF
-#     if pressed_key == 27:
-#         break
-#     elif pressed_key == ord('s'):
-#         cv2.imwrite(f"output/scanned{count}.jpg", processed)
-#         count += 1
-
 while True:
     ret, frame = cap.read()
     if not ret:
